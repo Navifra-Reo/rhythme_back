@@ -1,0 +1,34 @@
+const mysql = require('mysql');
+const conn = { 
+    init: function() {
+         return mysql.createConnection({
+            host: '168.131.153.23',
+            port: '6590', 
+            user: 'root', 
+            password: 'Xptmxm1212!@', 
+            database: 'vedio' 
+        }); 
+    }, 
+    open: function(con) {
+        con.connect(err => { 
+            if(err) { 
+                console.log("MySQL 연결 실패 : ", err); 
+            } 
+            else { 
+                console.log("MySQL Connected!!!"); 
+            } 
+        }); 
+    }, 
+    close: function(con) { 
+        con.end(err => { 
+            if(err) { 
+                console.log("MySQL 종료 실패 : ", err); 
+            } 
+            else { 
+                console.log("MySQL Terminated..."); 
+            } 
+        }) 
+    } 
+} 
+
+module.exports = conn; // #5
